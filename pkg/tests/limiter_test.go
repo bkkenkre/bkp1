@@ -65,6 +65,7 @@ func TestE2ELimiter(t *testing.T) {
 
 	// Print metrics
 	timeTaken := time.Since(start)
+	fmt.Printf("\n\nSUMMARY OF CLIENT REQUESTS USING SERVER METRICS\n")
 	server.PrintMetric()
 	fmt.Printf("Time taken %v\n", timeTaken)
 	server.Shutdown()

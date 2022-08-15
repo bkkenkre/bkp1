@@ -15,7 +15,7 @@ pkg/limiter - Rule
 - Mimics cache of rules for rate limiting. For simplicity the cache is a single global variable that maintains the
   maxRequests per unit of time rule for all clients
 
-tests/limiter_test.go - TestE2EServer
+pkg/tests/limiter_test.go - TestE2EServer
 - Run this to see the working of the rate limiter. The test creates clients that talk to the pool of servers and get
   rate limited based on the rule set
 

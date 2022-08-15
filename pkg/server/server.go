@@ -60,14 +60,17 @@ func CreateHttpServers(numServers int) {
 		if err := s.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatal(err)
 		}
-		log.Printf("Finished")
 	}()
 }
 
 // Shutdown the HTTP server
 func Shutdown() {
 	_, err := http.Get(fmt.Sprintf("http://localhost:%v/shutdown", ServerPort))
-	log.Printf("shutdown, err=%v", err)
+	if err == nil {
+		log.Print("Servers have been shutdown")
+	} else {
+		log.Printf("Server shutdown failed, err=%v", err)
+	}
 }
 
 /////////////////////////////////////////////////////////////////
